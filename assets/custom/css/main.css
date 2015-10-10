@@ -2,6 +2,7 @@
 body {
 	width: 100%;
 	height: 100%;
+    position: absolute;
 }
 
 /* Top Navigation Bar */
@@ -61,28 +62,43 @@ body {
 
 /* Home Page */
 .content-area {
-	top: 64px;
+    padding-top: 64px;
 	position: relative;
 	width: 100%;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+    vertical-align: middle;
+    background-color: antiquewhite;
 }
 
 #vsaBackground {
-	top: 15%;
-	position: relative;
+    position: relative;
+    top: 30%;
+    transform: translateY(-30%);
 }
 
 #vsaBackground h1 {
-	margin: 0;
 	background: url("../images/11225409_994360487275036_289854141025298073_o.jpg");
 	background-size: 77%;
-	background-position: center 0;
+	background-position: center 50%;
 	-webkit-background-clip: text;
 	background-repeat: no-repeat;
   	color: transparent;
 	font-weight: bold;
 	font-size: 35.0vw;
 	font-family: "finger paint";
+    position: relative;
+
+    
+/*
+	background-position: center 60%;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	position: absolute;
+	min-width: 450px;
+	width: 100%;
+	height: 100%;
+*/
 }
