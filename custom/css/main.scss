@@ -2,6 +2,7 @@ $main_color: #25BDB1;
 
 body {
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+    font-size: 14px;
 }
 
 
@@ -31,24 +32,61 @@ nav.navbar {
 
 section#home {
     background-color: black;
+    padding-top: 50px;
 
     #myCarousel {
         .item {
-            //position: relative;
-            //width: 100vw;
-            //height: 100vh;
+            height: calc(100vh - 50px);
         }
         img {
-            //position: absolute;
-            height: 100vh;
-            margin-left: auto;
-            margin-right: auto;
-            //left: 50%;
-            //top: 50%;
-            //transform: translate(-50%, -50%);
+            width: 100%;
+            height: auto;
+            max-width: none;
+            max-width: 800px;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            object-fit: cover;
+        }
+
+        .carousel-control.left,
+        .carousel-control.right {
+            position: absolute;
+            opacity: 1;
+            font-size: 1.2em;
+            padding: 8px;
+            width: 60px;
+            height: 40px;
+            top: 50%;
+            background: $main_color;
+        }
+        .carousel-control.left {
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .carousel-control.right {
+            right: 0;
+            border-radius: 5px 0 0 5px;
         }
     }
 }
 
 
+section#about {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 
+
+section#members {
+    background: black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow-x: auto;
+    .ui.cards {
+        position: relative;
+        flex-direction: column;
+        max-height: calc(100vh - 50px);
+    }
+}

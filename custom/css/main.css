@@ -1,5 +1,6 @@
 body {
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important; }
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+  font-size: 14px; }
 
 nav.navbar ul.nav li a {
   background-color: transparent !important;
@@ -16,10 +17,49 @@ nav.navbar ul.nav li:focus a {
     transition-duration: 0.3s; } }
 
 section#home {
-  background-color: black; }
+  background-color: black;
+  padding-top: 50px; }
+  section#home #myCarousel .item {
+    height: calc(100vh - 50px); }
   section#home #myCarousel img {
-    height: 100vh;
-    margin-left: auto;
-    margin-right: auto; }
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-width: 800px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    object-fit: cover; }
+  section#home #myCarousel .carousel-control.left,
+  section#home #myCarousel .carousel-control.right {
+    position: absolute;
+    opacity: 1;
+    font-size: 1.2em;
+    padding: 8px;
+    width: 60px;
+    height: 40px;
+    top: 50%;
+    background: #25BDB1; }
+  section#home #myCarousel .carousel-control.left {
+    left: 0;
+    border-radius: 0 5px 5px 0; }
+  section#home #myCarousel .carousel-control.right {
+    right: 0;
+    border-radius: 5px 0 0 5px; }
+
+section#about {
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+section#members {
+  background: black;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow-x: auto; }
+  section#members .ui.cards {
+    position: relative;
+    flex-direction: column;
+    max-height: calc(100vh - 50px); }
 
 /*# sourceMappingURL=main.css.map */
