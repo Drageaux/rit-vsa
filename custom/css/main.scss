@@ -88,5 +88,8 @@ section#members {
         position: relative;
         flex-direction: column;
         max-height: calc(100vh - 50px);
+        .card {
+            width: 220px;
+        }
     }
 }

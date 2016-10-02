@@ -62,5 +62,7 @@ section#members {
     position: relative;
     flex-direction: column;
     max-height: calc(100vh - 50px); }
+    section#members .ui.cards .card {
+      width: 220px; }
 
 /*# sourceMappingURL=main.css.map */

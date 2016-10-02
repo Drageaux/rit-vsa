@@ -15,16 +15,16 @@ function getMembersAjax() {
                 htmlMember =
                     '<div class="card">' +
                     '<div class="image">' +
-                    '<img src="' + mem.avatar + '">' +
+                    '<img src="' + mem.avatar + '" alt="' + mem.name + '">' +
                     '</div>' +
                     '<div class = "content">' +
                     '<div class="header member-name">' +
                     mem.name +
                     '</div>' +
                     '<div class="meta">' +
-                    '<a class= "member-major">' +
+                    '<div class= "member-major">' +
                     mem.major +
-                    '</a>' +
+                    '</div>' +
                     '</div>' +
                     '<div class="description member-bio">' +
                     mem.bio +
@@ -36,7 +36,6 @@ function getMembersAjax() {
                     '</span>' +
                     '</div>' +
                     '</div>';
-                console.log(htmlMember);
                 html += htmlMember;
             });
 
