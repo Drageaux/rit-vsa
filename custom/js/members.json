@@ -1,9 +1,23 @@
 [
   {
     "name": "Quang Vu",
-    "avatar": "",
+    "avatar": "custom/img/avatars/steve.jpg",
     "major": "Software Engineering",
     "bio": "Testing Testing",
     "year_joined": "2012"
+  },
+  {
+    "name": "My Tran",
+    "avatar": "custom/img/avatars/steve.jpg",
+    "major": "Software Engineering",
+    "bio": "Testing Testing",
+    "year_joined": "2015"
+  },
+  {
+    "name": "Thong Nguyen",
+    "avatar": "custom/img/avatars/thn1069.jpg",
+    "major": "Software Engineering",
+    "bio": "Testing Testing",
+    "year_joined": "2013"
   }
 ]
