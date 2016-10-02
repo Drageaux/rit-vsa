@@ -7,6 +7,7 @@ body {
 
 
 nav.navbar {
+    background: black;
     ul.nav {
         li {
             a {
@@ -41,7 +42,6 @@ section#home {
         img {
             width: 100%;
             height: auto;
-            max-width: none;
             max-width: 800px;
             position: absolute;
             top: 60%;

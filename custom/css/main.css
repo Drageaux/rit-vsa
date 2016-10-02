@@ -2,19 +2,21 @@ body {
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
   font-size: 14px; }
 
-nav.navbar ul.nav li a {
-  background-color: transparent !important;
-  color: white !important;
-  text-transform: uppercase; }
-nav.navbar ul.nav li.active a,
-nav.navbar ul.nav li:hover a,
-nav.navbar ul.nav li:focus a {
-  color: #25BDB1 !important; }
-@media screen and (min-width: 768px) {
+nav.navbar {
+  background: black; }
+  nav.navbar ul.nav li a {
+    background-color: transparent !important;
+    color: white !important;
+    text-transform: uppercase; }
+  nav.navbar ul.nav li.active a,
   nav.navbar ul.nav li:hover a,
   nav.navbar ul.nav li:focus a {
-    transform: scale(1.25);
-    transition-duration: 0.3s; } }
+    color: #25BDB1 !important; }
+  @media screen and (min-width: 768px) {
+    nav.navbar ul.nav li:hover a,
+    nav.navbar ul.nav li:focus a {
+      transform: scale(1.25);
+      transition-duration: 0.3s; } }
 
 section#home {
   background-color: black;
@@ -24,7 +26,6 @@ section#home {
   section#home #myCarousel img {
     width: 100%;
     height: auto;
-    max-width: none;
     max-width: 800px;
     position: absolute;
     top: 60%;
