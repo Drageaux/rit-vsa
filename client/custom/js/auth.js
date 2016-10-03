@@ -87,8 +87,16 @@ lock.on("authenticated", function (authResult) {
         } else {
             localStorage.setItem('id_token', authResult.idToken);
             localStorage.setItem('profile', JSON.stringify(profile));
-            displayAuthButtons(profile);
+            $.post({
+                url: "user",
+                data: profile,
+                dataType: "json",
+                success: function (newUser) {
+                    console.log(newUser);
+                    displayAuthButtons(newUser);
+                }
+            });
+
         }
     });
 });
-;

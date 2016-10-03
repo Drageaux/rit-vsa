@@ -2,10 +2,10 @@ var express = require("express"),
     app = express(),
     path = require("path"),
     bodyParser = require("body-parser"),
-    mongoose = require("mongoose");
+    mongoose = require("mongoose"),
+    userRouter = require("./server/routers/userRouter");
 
-// Import routers
-var userRouter = require("./server/routers/userRouter");
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/vsa-rit");
 
 // Settings
 var bodyParser = require('body-parser');

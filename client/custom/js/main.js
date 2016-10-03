@@ -4,8 +4,8 @@ $(document).ready(function () {
 
 
 function getMembersAjax() {
-    $.ajax({
-        url: "custom/js/members.json",
+    $.get({
+        url: "user/all",
         dataType: "json",
         success: function (members) {
             console.log(members);

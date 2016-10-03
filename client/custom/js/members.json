@@ -19,5 +19,25 @@
     "major": "Software Engineering",
     "bio": "Testing Testing",
     "year_joined": "2013"
+  },
+  {
+    "email": "thn1069@rit.edu",
+    "picture": "https://s.gravatar.com/avatar/5efb0e4f5b15540cfbc79eee37e4f78b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fth.png",
+    "name": "thn1069@rit.edu",
+    "nickname": "thn1069",
+    "email_verified": true,
+    "clientID": "UP3jY0e9mUkXoQTFFQjPoNTapChMAyK5",
+    "updated_at": "2016-10-03T22:43:56.336Z",
+    "user_id": "auth0|57f1f7d38096d1745b4386d5",
+    "identities": [
+      {
+        "user_id": "57f1f7d38096d1745b4386d5",
+        "provider": "auth0",
+        "connection": "Username-Password-Authentication",
+        "isSocial": false
+      }
+    ],
+    "created_at": "2016-10-03T06:16:51.645Z",
+    "global_client_id": "NFWOYWrMr8VsYgLiFmytSOFoRET95AFb"
   }
 ]
