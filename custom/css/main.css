@@ -10,6 +10,7 @@ nav.navbar {
   nav.navbar ul.nav li a {
     background-color: transparent !important;
     color: white !important;
+    padding: 15px 10px;
     text-transform: uppercase;
     transition-duration: 0.3s; }
   nav.navbar ul.navbar-left li a {
@@ -19,13 +20,15 @@ nav.navbar {
   nav.navbar ul.navbar-left li:focus a {
     color: black !important;
     background-color: #25BDB1 !important; }
-  nav.navbar ul.navbar-right li:hover a,
-  nav.navbar ul.navbar-right li:focus a {
-    color: #25BDB1 !important; }
-  @media screen and (min-width: 768px) {
+  nav.navbar ul.navbar-right {
+    margin-right: 0; }
     nav.navbar ul.navbar-right li:hover a,
     nav.navbar ul.navbar-right li:focus a {
-      transform: scale(1.25); } }
+      color: #25BDB1 !important; }
+    @media screen and (min-width: 768px) {
+      nav.navbar ul.navbar-right li:hover a,
+      nav.navbar ul.navbar-right li:focus a {
+        transform: scale(1.25); } }
 
 /*
  * Main Contents

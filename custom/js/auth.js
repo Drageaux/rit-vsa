@@ -14,6 +14,14 @@ function configureLock() {
             params: {
                 scope: 'openid email'
             }
+        },
+        languageDictionary: {
+            emailInputPlaceholder: "RIT Emails only",
+            title: "Welcome to RIT VSA!"
+        },
+        theme: {
+            logo: 'custom/img/vsa-logo.jpg',
+            primaryColor: '#25BDB1'
         }
     });
     return lock;
@@ -42,14 +50,14 @@ function getProfile() {
 
 function displayAuthButtons(userProfile) {
     var html = "";
-    console.log(userProfile);
+    
     if (userProfile != null) {
         html += '<li><a class="username" href="#">' + userProfile.nickname + '</a></li>';
-        html += '<li><a class="btn-logout" href="#" onclick="logout()">Log Out</a></li>';
+        html += '<li><a class="btn-logout" href="#" onclick="logout()"><i class="sign out icon"></i>Log Out</a></li>';
         console.log(html);
         $("#auth-buttons").html(html);
     } else {
-        html = '<li><a class="btn-login" href="#" onclick="login()">Login</a></li>';
+        html = '<li><a class="btn-login" href="#" onclick="login()">Join Us / Login</a></li>';
         $("#auth-buttons").html(html);
     }
 }
