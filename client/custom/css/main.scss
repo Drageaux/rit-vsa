@@ -10,6 +10,7 @@ body {
  */
 nav.navbar {
     background: black;
+    .navbar-collapse { max-height: 100vh; }
     ul.nav {
         li {
             a {
@@ -36,13 +37,18 @@ nav.navbar {
         margin-right: 0;
         li:hover,
         li:focus {
-            a { color: $main_color !important; }
+            a { cursor: pointer; color: $main_color !important; }
         }
         @media screen and (min-width: 768px) {
             li:hover,
             li:focus {
                 a { transform: scale(1.25) }
             }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        ul.navbar-right {
+            border-top: solid 1px white;
         }
     }
 }

@@ -52,8 +52,8 @@ function displayAuthButtons(userProfile) {
     var html = "";
     
     if (userProfile != null) {
-        html += '<li><a class="username" href="#">' + userProfile.nickname + '</a></li>';
-        html += '<li><a class="btn-logout" href="#" onclick="logout()"><i class="sign out icon"></i>Log Out</a></li>';
+        html += '<li><a class="username">' + userProfile.nickname + '</a></li>';
+        html += '<li><a class="btn-logout" onclick="logout()"><i class="sign out icon"></i>Log Out</a></li>';
         console.log(html);
         $("#auth-buttons").html(html);
     } else {

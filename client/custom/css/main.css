@@ -7,6 +7,8 @@ body {
  */
 nav.navbar {
   background: black; }
+  nav.navbar .navbar-collapse {
+    max-height: 100vh; }
   nav.navbar ul.nav li a {
     background-color: transparent !important;
     color: white !important;
@@ -24,11 +26,15 @@ nav.navbar {
     margin-right: 0; }
     nav.navbar ul.navbar-right li:hover a,
     nav.navbar ul.navbar-right li:focus a {
+      cursor: pointer;
       color: #25BDB1 !important; }
     @media screen and (min-width: 768px) {
       nav.navbar ul.navbar-right li:hover a,
       nav.navbar ul.navbar-right li:focus a {
         transform: scale(1.25); } }
+  @media screen and (max-width: 768px) {
+    nav.navbar ul.navbar-right {
+      border-top: solid 1px white; } }
 
 /*
  * Main Contents
