@@ -7,22 +7,18 @@ body {
  */
 nav.navbar {
   background: black; }
-  nav.navbar ul.navbar-left li a {
+  nav.navbar ul.nav li a {
     background-color: transparent !important;
     color: white !important;
-    font-weight: bold;
     text-transform: uppercase;
     transition-duration: 0.3s; }
+  nav.navbar ul.navbar-left li a {
+    font-weight: bold; }
   nav.navbar ul.navbar-left li.active a,
   nav.navbar ul.navbar-left li:hover a,
   nav.navbar ul.navbar-left li:focus a {
     color: black !important;
     background-color: #25BDB1 !important; }
-  nav.navbar ul.navbar-right li a {
-    background-color: transparent !important;
-    color: white !important;
-    text-transform: uppercase;
-    transition-duration: 0.3s; }
   nav.navbar ul.navbar-right li:hover a,
   nav.navbar ul.navbar-right li:focus a {
     color: #25BDB1 !important; }
@@ -82,7 +78,9 @@ section#members {
     section#members .ui.cards .card {
       width: 220px; }
 
-/* Scrollbar */
+/*
+ * Scrollbar
+ */
 ::-webkit-scrollbar {
   width: 8px; }
 

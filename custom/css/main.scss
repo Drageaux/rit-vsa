@@ -11,17 +11,19 @@ body {
 nav.navbar {
     background: black;
     ul.nav {
-
-    }
-    ul.navbar-left {
         li {
             a {
                 background-color: transparent !important;
                 color: white !important;
-                font-weight: bold;
                 text-transform: uppercase;
                 transition-duration: 0.3s;
             }
+        }
+
+    }
+    ul.navbar-left {
+        li {
+            a { font-weight: bold; }
         }
         li.active,
         li:hover,
@@ -30,14 +32,6 @@ nav.navbar {
         }
     }
     ul.navbar-right {
-        li {
-            a {
-                background-color: transparent !important;
-                color: white !important;
-                text-transform: uppercase;
-                transition-duration: 0.3s;
-            }
-        }
         li:hover,
         li:focus {
             a { color: $main_color !important; }
@@ -120,7 +114,9 @@ section#members {
 }
 
 
-/* Scrollbar */
+/*
+ * Scrollbar
+ */
 ::-webkit-scrollbar {
     width: 8px;
 }
