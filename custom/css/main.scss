@@ -11,14 +11,33 @@ body {
 nav.navbar {
     background: black;
     ul.nav {
+
+    }
+    ul.navbar-left {
+        li {
+            a {
+                background-color: transparent !important;
+                color: white !important;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition-duration: 0.3s;
+            }
+        }
+        li.active,
+        li:hover,
+        li:focus {
+            a { color: black !important; background-color: $main_color !important; }
+        }
+    }
+    ul.navbar-right {
         li {
             a {
                 background-color: transparent !important;
                 color: white !important;
                 text-transform: uppercase;
+                transition-duration: 0.3s;
             }
         }
-        li.active,
         li:hover,
         li:focus {
             a { color: $main_color !important; }
@@ -26,7 +45,7 @@ nav.navbar {
         @media screen and (min-width: 768px) {
             li:hover,
             li:focus {
-                a { transform: scale(1.25); transition-duration: 0.3s }
+                a { transform: scale(1.25) }
             }
         }
     }
@@ -45,9 +64,9 @@ section#home {
             height: calc(100vh - 50px);
         }
         img {
-            width: 100%;
             height: auto;
-            max-width: 800px;
+            max-width: 100%;
+            max-height: calc(100vh - 50px);
             position: absolute;
             top: 60%;
             left: 50%;
@@ -57,6 +76,7 @@ section#home {
 
         .carousel-control.left,
         .carousel-control.right {
+            color: black;
             position: absolute;
             opacity: 1;
             font-size: 1.2em;

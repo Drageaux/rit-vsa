@@ -7,19 +7,29 @@ body {
  */
 nav.navbar {
   background: black; }
-  nav.navbar ul.nav li a {
+  nav.navbar ul.navbar-left li a {
     background-color: transparent !important;
     color: white !important;
-    text-transform: uppercase; }
-  nav.navbar ul.nav li.active a,
-  nav.navbar ul.nav li:hover a,
-  nav.navbar ul.nav li:focus a {
+    font-weight: bold;
+    text-transform: uppercase;
+    transition-duration: 0.3s; }
+  nav.navbar ul.navbar-left li.active a,
+  nav.navbar ul.navbar-left li:hover a,
+  nav.navbar ul.navbar-left li:focus a {
+    color: black !important;
+    background-color: #25BDB1 !important; }
+  nav.navbar ul.navbar-right li a {
+    background-color: transparent !important;
+    color: white !important;
+    text-transform: uppercase;
+    transition-duration: 0.3s; }
+  nav.navbar ul.navbar-right li:hover a,
+  nav.navbar ul.navbar-right li:focus a {
     color: #25BDB1 !important; }
   @media screen and (min-width: 768px) {
-    nav.navbar ul.nav li:hover a,
-    nav.navbar ul.nav li:focus a {
-      transform: scale(1.25);
-      transition-duration: 0.3s; } }
+    nav.navbar ul.navbar-right li:hover a,
+    nav.navbar ul.navbar-right li:focus a {
+      transform: scale(1.25); } }
 
 /*
  * Main Contents
@@ -30,9 +40,9 @@ section#home {
   section#home #myCarousel .item {
     height: calc(100vh - 50px); }
   section#home #myCarousel img {
-    width: 100%;
     height: auto;
-    max-width: 800px;
+    max-width: 100%;
+    max-height: calc(100vh - 50px);
     position: absolute;
     top: 60%;
     left: 50%;
@@ -40,6 +50,7 @@ section#home {
     object-fit: cover; }
   section#home #myCarousel .carousel-control.left,
   section#home #myCarousel .carousel-control.right {
+    color: black;
     position: absolute;
     opacity: 1;
     font-size: 1.2em;
