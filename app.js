@@ -8,7 +8,6 @@ var express = require("express"),
 mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/vsa-rit");
 
 // Settings
-var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false})); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 

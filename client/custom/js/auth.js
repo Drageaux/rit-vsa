@@ -1,33 +1,13 @@
 var lock = configureLock();
-var userProfile;
+var user;
 
 $(document).ready(function () {
-    userProfile = getProfile();
-    displayAuthButtons(userProfile);
+    user = getUser();
 });
 
 
-/** Helper Functions **/
-function configureLock() {
-    lock = new Auth0Lock('UP3jY0e9mUkXoQTFFQjPoNTapChMAyK5', 'vsarit.auth0.com', {
-        auth: {
-            params: {
-                scope: 'openid email'
-            }
-        },
-        languageDictionary: {
-            emailInputPlaceholder: "RIT Emails only",
-            title: "Welcome to RIT VSA!"
-        },
-        theme: {
-            logo: 'custom/img/vsa-logo.jpg',
-            primaryColor: '#25BDB1'
-        }
-    });
-    return lock;
-}
 
-function getProfile() {
+function getUser() {
     var id_token = localStorage.getItem('id_token');
 
     if (null != id_token) {
@@ -36,23 +16,33 @@ function getProfile() {
                 // remove expired token (if any) from localStorage
                 localStorage.removeItem('id_token');
                 console.log('There was an error getting the profile: ' + err.message);
+                displayAuthButtons(null);
                 return null;
             } else {
                 // user is authenticated
-                console.log("Welcome back!");
-                return profile;
+                $.post({
+                    url: "user",
+                    data: profile,
+                    dataType: "json",
+                    success: function (user) {
+                        console.log(user);
+                        displayAuthButtons(user);
+                        return user;
+                    }
+                });
             }
         });
     } else {
+        displayAuthButtons(null);
         return null;
     }
 }
 
-function displayAuthButtons(userProfile) {
+function displayAuthButtons(user) {
     var html = "";
-    
-    if (userProfile != null) {
-        html += '<li><a class="username">' + userProfile.nickname + '</a></li>';
+
+    if (user != null) {
+        html += '<li><a class="username" onclick="editModal()">' + user.nickname + '</a></li>';
         html += '<li><a class="btn-logout" onclick="logout()"><i class="sign out icon"></i>Log Out</a></li>';
         console.log(html);
         $("#auth-buttons").html(html);
@@ -69,8 +59,8 @@ function login() {
 function logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
-    window.location.href = "http://localhost:63342/rit-vsa-www/index.html";
-    displayAuthButtons(userProfile);
+    window.location.href = "http://localhost:3000";
+    displayAuthButtons(user);
     // TODO: Display some message
 }
 
@@ -94,9 +84,33 @@ lock.on("authenticated", function (authResult) {
                 success: function (newUser) {
                     console.log(newUser);
                     displayAuthButtons(newUser);
+                },
+                fail: function () {
+                    displayAuthButtons(null);
                 }
             });
 
         }
     });
 });
+
+
+/** Settings **/
+function configureLock() {
+    lock = new Auth0Lock('UP3jY0e9mUkXoQTFFQjPoNTapChMAyK5', 'vsarit.auth0.com', {
+        auth: {
+            params: {
+                scope: 'openid email'
+            }
+        },
+        languageDictionary: {
+            emailInputPlaceholder: "RIT Emails only",
+            title: "Welcome to RIT VSA!"
+        },
+        theme: {
+            logo: 'custom/img/vsa-logo.jpg',
+            primaryColor: '#25BDB1'
+        }
+    });
+    return lock;
+}

@@ -3,6 +3,15 @@ var userRouter = express.Router();
 
 var User = require("../models/user.model");
 
+userRouter.get("/", function (req, res) {
+    User.findOne({email: req.params.email}, function (err, user) {
+        if (err) {
+            console.log(err)
+        }
+        res.json(user);
+    });
+});
+
 userRouter.get("/all", function (req, res) {
     User.find({}, function (err, users) {
         if (err) {
@@ -13,25 +22,31 @@ userRouter.get("/all", function (req, res) {
 });
 
 userRouter.post("/", function (req, res) {
-    console.log(req.body);
-    var user = new User();
-    user.userId = req.body.user_id;
-    user.email = req.body.email;
-    user.nickname = req.body.nickname;
-    user.name = req.body.name;
-    user.avatar = "custom/img/avatars/steve.jpg";
-    user.role = "Member";
-    user.major = "";
-    user.bio = "";
-    user.year_joined = null;
-
-    user.save(function (err, user) {
-        if (err) {
-            console.log(err);
+    console.log(req.body + "\n");
+    User.findOne({email: req.body.email}, function (err, user) {
+        if (err || user == null) {
+            var newUser = new User();
+            newUser.userId = req.body.user_id;
+            newUser.email = req.body.email;
+            newUser.nickname = req.body.nickname;
+            newUser.name = req.body.name;
+            newUser.avatar = "custom/img/avatars/steve.jpg";
+            newUser.role = "Member";
+            newUser.major = "";
+            newUser.bio = "";
+            newUser.year_joined = null;
+            newUser.save(function (err, newUser) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log("New user: " + newUser);
+                res.json(newUser);
+            });
+        } else {
+            res.json(user);
         }
-        console.log("New user: " + user);
-        res.json(user);
     });
+
 });
 
 module.exports = userRouter;

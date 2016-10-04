@@ -88,6 +88,12 @@ section#members {
       width: 220px; }
 
 /*
+ * Modal
+ */
+.modal {
+  bottom: auto !important; }
+
+/*
  * Scrollbar
  */
 ::-webkit-scrollbar {

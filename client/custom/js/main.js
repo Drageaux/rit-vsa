@@ -14,27 +14,29 @@ function getMembersAjax() {
             $.each(members, function (index, mem) {
                 htmlMember =
                     '<div class="card">' +
-                    '<div class="image">' +
-                    '<img src="' + mem.avatar + '" alt="' + mem.name + '">' +
-                    '</div>' +
-                    '<div class = "content">' +
-                    '<div class="header member-name">' +
+                    '   <div class="image">' +
+                    '       <img src="' + mem.avatar + '" alt="' + mem.name + '">' +
+                    '   </div>' +
+                    '   <div class = "content">' +
+                    '       <div class="header member-name">' +
                     mem.name +
-                    '</div>' +
-                    '<div class="meta">' +
-                    '<div class= "member-major">' +
-                    mem.major +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="description member-bio">' +
+                    '       </div>' +
+                    '       <div class="meta">' +
+                    '           <div>' +
+                    mem.role + '<br>' + mem.major +
+                    '           </div>' +
+                    '       </div>' +
+                    '       <div class="description member-bio">' +
                     mem.bio +
-                    '</div>' +
-                    '</div>' +
-                    '<div class= "extra content">' +
-                    '<span class= "right floated member-year-joined">' +
-                    'Joined in ' + mem.year_joined +
-                    '</span>' +
-                    '</div>' +
+                    '       </div>' +
+                    '   </div>';
+                htmlMember +=
+                    '   <div class= "extra content">' +
+                    '       <span class= "right floated member-year-joined">';
+                htmlMember += mem.year_joined ? 'Joined in ' + mem.year_joined : '';
+                htmlMember +=
+                    '       </span>' +
+                    '   </div>' +
                     '</div>';
                 html += htmlMember;
             });
@@ -42,4 +44,10 @@ function getMembersAjax() {
             $("#members .ui.cards").append(html);
         }
     });
+}
+
+function editModal() {
+    $('.ui.modal#profile-modal')
+        .modal('show')
+    ;
 }
