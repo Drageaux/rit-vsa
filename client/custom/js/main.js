@@ -48,6 +48,5 @@ function getMembersAjax() {
 
 function editModal() {
     $('.ui.modal#profile-modal')
-        .modal('show')
-    ;
+        .modal('show');
 }
