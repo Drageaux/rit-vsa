@@ -22,7 +22,7 @@ userRouter.get("/all", function (req, res) {
 });
 
 userRouter.post("/", function (req, res) {
-    console.log(req.body + "\n");
+    console.log(req.body);
     User.findOne({email: req.body.email}, function (err, user) {
         if (err || user == null) {
             var newUser = new User();
@@ -43,6 +43,15 @@ userRouter.post("/", function (req, res) {
                 res.json(newUser);
             });
         } else {
+            user.userId = req.body.user_id;
+            user.email = req.body.email;
+            user.nickname = req.body.nickname;
+            user.name = req.body.name;
+            user.avatar = req.body.avatar;
+            user.role = req.body.role;
+            user.major = req.body.major;
+            user.bio = req.body.bio;
+            user.year_joined = user.year_joined;
             res.json(user);
         }
     });

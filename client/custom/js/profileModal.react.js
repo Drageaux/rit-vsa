@@ -26,6 +26,24 @@ var ProfileForm = React.createClass({
     handleBioChange: function (e) {
         this.setState({bio: e.target.value})
     },
+    handleSubmit: function (e) {
+        e.preventDefault();
+        var name = this.state.name ? this.state.name.trim() : this.state.name;
+        console.log(name);
+        var role = this.state.role ? this.state.role.trim() : this.state.role;
+        var year_joined = this.state.year_joined ? this.state.year_joined.trim() : this.state.year_joined;
+        var major = this.state.major ? this.state.major.trim() : this.state.major;
+        var bio = this.state.bio ? this.state.bio.trim() : this.state.bio;
+
+        this.props.onFormSubmit({
+            name: name,
+            role: role,
+            year_joined: year_joined,
+            major: major,
+            bio: bio
+        });
+        this.setState({name: "", role: "", year_joined: "", major: "", bio: ""});
+    },
     render: function () {
         return (
             <div className="profile-form ui form">
@@ -64,6 +82,13 @@ var ProfileForm = React.createClass({
                            value={this.state.bio || ""}
                            onChange={this.handleBioChange}/>
                 </div>
+
+
+                <div className="ui positive right labeled icon button"
+                     onClick={this.handleSubmit}>
+                    Save
+                    <i className="checkmark icon"></i>
+                </div>
             </div>
         );
     }
@@ -83,6 +108,19 @@ var ProfileModal = React.createClass({
             }.bind(this),
             error: function (xhr, status, err) {
                 console.log("user/byEmail/" + email, status, err.toString());
+            }.bind(this)
+        })
+    },
+    handleFormSubmit: function (user) {
+        $.post({
+            url: "user",
+            data: user,
+            dataType: "json",
+            success: function (user) {
+                this.setState({user: user});
+            }.bind(this),
+            error: function (xhr, status, err) {
+                console.log("user", status, err.toString());
             }.bind(this)
         })
     },
@@ -110,18 +148,14 @@ var ProfileModal = React.createClass({
                                 "We've auto-chosen a profile image for you. Please update your own!" :
                                 ""}
                         </div>
-                        <ProfileForm user={this.state.user}/>
+                        <ProfileForm user={this.state.user}
+                                     onFormSubmit={this.handleFormSubmit}/>
                     </div>
                 </div>
 
                 <div className="actions">
                     <div className="ui black deny button">
                         Cancel
-                    </div>
-                    <div className="ui positive right labeled icon button">
-                        //TODO: bind click event
-                        Save
-                        <i className="checkmark icon"></i>
                     </div>
                 </div>
             </div>
