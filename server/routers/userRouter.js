@@ -12,6 +12,7 @@ userRouter.get("/all", function (req, res) {
         res.json(users);
     });
 });
+
 userRouter.get("/:email", function (req, res) {
     User.findOne({email: req.params.email}, function (err, user) {
         if (err) {

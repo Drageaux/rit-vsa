@@ -1,17 +1,18 @@
 var ProfileModal = React.createClass({
     getInitialState: function () {
-        return {user: null, email: JSON.parse(localStorage.getItem("profile")).email};
+        return {user: {}};
     },
     componentDidMount: function () {
+        var email = JSON.parse(localStorage.getItem("profile")).email;
         $.get({
-            url: "user/byEmail/" + this.state.email,
+            url: "user/" + email,
             dataType: "json",
             success: function (user) {
-                console.log(user);
                 this.setState({user: user});
+                console.log(user);
             }.bind(this),
             error: function (xhr, status, err) {
-                console.log("user/byEmail/" + email, status, err.toString());
+                console.log("user/" + email, status, err.toString());
             }.bind(this)
         })
     },
@@ -26,6 +27,11 @@ var ProfileModal = React.createClass({
                     <div className="ui medium image">
                         //Avatar and Upload button
                         <img src={this.state.user.avatar}/>
+
+                        <a className="file-upload ui button">
+                            <span>Upload</span>
+                            <input type="file" className="upload"/>
+                        </a>
                     </div>
                     <div className="description">
                         <div className="ui header">We've auto-chosen a profile image for you. Please update your own!
