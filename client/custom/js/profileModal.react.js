@@ -76,14 +76,13 @@ var ProfileModal = React.createClass({
     componentDidMount: function () {
         var email = JSON.parse(localStorage.getItem("profile")).email;
         $.get({
-            url: "user/" + email,
+            url: "user/byEmail/" + email,
             dataType: "json",
             success: function (user) {
                 this.setState({user: user});
                 console.log(user);
             }.bind(this),
             error: function (xhr, status, err) {
-                console.log("user/" + email, status, err.toString());
             }.bind(this)
         })
     },

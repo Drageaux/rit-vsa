@@ -3,7 +3,7 @@ var userRouter = express.Router();
 
 var User = require("../models/user.model");
 
-userRouter.get("/:email", function (req, res) {
+userRouter.get("/byEmail/:email", function (req, res) {
     User.findOne({email: req.params.email}, function (err, user) {
         if (err) {
             console.log(err)
