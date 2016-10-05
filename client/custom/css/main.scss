@@ -1,6 +1,6 @@
 $main_color: #25BDB1;
 
-body {
+html {
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
     font-size: 14px;
 }
@@ -135,7 +135,8 @@ section#members {
 .file-upload {
     position: relative;
     overflow: hidden;
-    margin: 10px;
+    margin-top: 5px !important;
+    width: 100%;
     input.upload {
         position: absolute;
         top: 0;
