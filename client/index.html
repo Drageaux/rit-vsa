@@ -112,47 +112,34 @@
     </div>
 </section>
 
-
-<div class="ui modal" id="profile-modal">
-    <i class="close icon"></i>
-    <div class="header">
-        Update Profile
-    </div>
-    <div class="image content">
-        <div class="ui medium image">
-            <!--Avatar and Upload button-->
-        </div>
-        <div class="description">
-            <div class="ui header">We've auto-chosen a profile image for you. Please update your own!</div>
-            <!--Form to edit info-->
-        </div>
-    </div>
-    <div class="actions">
-        <div class="ui black deny button">
-            Cancel
-        </div>
-        <div class="ui positive right labeled icon button">
-            <!--TODO: bind click event-->
-            Save
-            <i class="checkmark icon"></i>
-        </div>
-    </div>
+<div class="ui modal" id="profile-modal-react">
 </div>
+
+<script type="text/babel" src="custom/js/profileModal.react.js"></script>
 </body>
 
+<!--React library for UI-->
+<!--<script src="//unpkg.com/react@15.3.2/dist/react.min.js"></script>-->
+<!--<script src="//unpkg.com/react-dom@15.3.2/dist/react-dom.min.js"></script>-->
+<script src="//unpkg.com/react@15.3.2/dist/react.js"></script>
+<script src="//unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+<script src="//unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<!--jQuery-->
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
-
+<!--Auth0 Lock for authentication-->
+<script src="//cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
+<!--TweenMax & ScrollMagic for Animation-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<!--<script src="scrollmagic/minified/ScrollMagic.min.js"></script>-->
+<!--TODO <script src="scrollmagic/minified/ScrollMagic.min.js"></script>-->
 <script src="scrollmagic/uncompressed/ScrollMagic.js"></script>
 <script src="scrollmagic/minified/plugins/animation.gsap.min.js"></script>
 <script src="scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
-
+<!--UI Framework-->
 <script async src="bootstrap/js/bootstrap.min.js"></script>
-<script async src="semantic/js/semantic.min.js"></script>
 <script async src="bootstrap/js/jquery.easing.min.js"></script>
 <script async src="bootstrap/js/scrolling-nav.js"></script>
+<script async src="semantic/js/semantic.min.js"></script>
+<!--Custom-->
 <script async src="custom/js/auth.js"></script>
 <script async src="custom/js/main.js"></script>
 

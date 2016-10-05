@@ -3,14 +3,6 @@ var userRouter = express.Router();
 
 var User = require("../models/user.model");
 
-userRouter.get("/", function (req, res) {
-    User.findOne({email: req.params.email}, function (err, user) {
-        if (err) {
-            console.log(err)
-        }
-        res.json(user);
-    });
-});
 
 userRouter.get("/all", function (req, res) {
     User.find({}, function (err, users) {
@@ -18,6 +10,14 @@ userRouter.get("/all", function (req, res) {
             console.log(err)
         }
         res.json(users);
+    });
+});
+userRouter.get("/:email", function (req, res) {
+    User.findOne({email: req.params.email}, function (err, user) {
+        if (err) {
+            console.log(err)
+        }
+        res.json(user);
     });
 });
 
