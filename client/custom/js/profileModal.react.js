@@ -80,9 +80,9 @@ var ProfileModal = React.createClass({
             dataType: "json",
             success: function (user) {
                 this.setState({user: user});
-                console.log(user);
             }.bind(this),
             error: function (xhr, status, err) {
+                console.log("user/byEmail/" + email, status, err.toString());
             }.bind(this)
         })
     },
