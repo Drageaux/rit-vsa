@@ -34,7 +34,7 @@ userRouter.post("/", function (req, res) {
             newUser.role = "Member";
             newUser.major = "";
             newUser.bio = "";
-            newUser.year_joined = null;
+            newUser.year_joined = 0;
             newUser.save(function (err, newUser) {
                 if (err) {
                     console.log(err);
@@ -51,8 +51,14 @@ userRouter.post("/", function (req, res) {
             user.role = req.body.role;
             user.major = req.body.major;
             user.bio = req.body.bio;
-            user.year_joined = user.year_joined;
-            res.json(user);
+            user.year_joined = user.year_joined || 0;
+            user.save(function (err, user) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log("Updated user: " + user);
+                res.json(user);
+            });
         }
     });
 
