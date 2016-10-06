@@ -26,7 +26,7 @@ userRouter.post("/", function (req, res) {
     User.findOne({email: req.body.email}, function (err, user) {
         if (err || user == null) {
             var newUser = new User();
-            newUser.userId = req.body.user_id;
+            newUser.user_id = req.body.user_id;
             newUser.email = req.body.email;
             newUser.nickname = req.body.nickname;
             newUser.name = req.body.name;
@@ -34,24 +34,34 @@ userRouter.post("/", function (req, res) {
             newUser.role = "Member";
             newUser.major = "";
             newUser.bio = "";
-            newUser.year_joined = 0;
+            newUser.year_joined = null;
             newUser.save(function (err, newUser) {
                 if (err) {
                     console.log(err);
+                    res.json(err);
                 }
                 console.log("New user: " + newUser);
                 res.json(newUser);
             });
         } else {
-            user.userId = req.body.user_id;
-            user.email = req.body.email;
-            user.nickname = req.body.nickname;
+            res.json(user);
+        }
+    });
+});
+
+
+userRouter.put("/", function (req, res) {
+    console.log(req.body);
+    User.findOne({email: req.body.email}, function (err, user) {
+        if (err || user == null) {
+            console.log(err);
+            res.json(err);
+        } else {
             user.name = req.body.name;
-            user.avatar = req.body.avatar;
             user.role = req.body.role;
             user.major = req.body.major;
             user.bio = req.body.bio;
-            user.year_joined = user.year_joined || 0;
+            user.year_joined = user.year_joined || null;
             user.save(function (err, user) {
                 if (err) {
                     console.log(err);
@@ -61,7 +71,6 @@ userRouter.post("/", function (req, res) {
             });
         }
     });
-
 });
 
 module.exports = userRouter;

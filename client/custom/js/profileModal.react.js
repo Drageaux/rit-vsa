@@ -94,27 +94,30 @@ var ProfileForm = React.createClass({
     }
 });
 
+
 var ProfileModal = React.createClass({
     getInitialState: function () {
-        return {user: {}};
+        return {user: {}, email: JSON.parse(localStorage.getItem("profile")).email};
     },
     componentDidMount: function () {
-        var email = JSON.parse(localStorage.getItem("profile")).email;
         $.get({
-            url: "user/byEmail/" + email,
+            url: "user/byEmail/" + this.state.email,
             dataType: "json",
             success: function (user) {
                 this.setState({user: user});
             }.bind(this),
             error: function (xhr, status, err) {
-                console.log("user/byEmail/" + email, status, err.toString());
+                console.log("user/byEmail/" + this.state.email, status, err.toString());
             }.bind(this)
         })
     },
     handleFormSubmit: function (user) {
-        $.post({
+        user.email = this.state.email;
+        $.ajax({
             url: "user",
-            data: user,
+            type: "PUT",
+            data: JSON.stringify(user),
+            contentType: "application/json",
             dataType: "json",
             success: function (user) {
                 this.setState({user: user});
