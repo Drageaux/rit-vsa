@@ -33,7 +33,7 @@ function getMembersAjax() {
                 htmlMember +=
                     '   <div class= "extra content">' +
                     '       <span class= "right floated member-year-joined">';
-                htmlMember += mem.year_joined ? 'Joined in ' + mem.year_joined : '';
+                htmlMember += mem.year_joined > 0 && mem.year_joined != null ? 'Joined in ' + mem.year_joined : '';
                 htmlMember +=
                     '       </span>' +
                     '   </div>' +

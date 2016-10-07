@@ -90,7 +90,10 @@ section#members {
 /*
  * Modal
  */
-.modal {
+.ui.dimmer {
+  padding-top: 50px; }
+
+.ui.modal {
   bottom: auto !important; }
 
 /*

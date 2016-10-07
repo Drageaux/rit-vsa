@@ -61,7 +61,7 @@ userRouter.put("/", function (req, res) {
             user.role = req.body.role;
             user.major = req.body.major;
             user.bio = req.body.bio;
-            user.year_joined = user.year_joined || null;
+            user.year_joined = req.body.year_joined || null;
             user.save(function (err, user) {
                 if (err) {
                     console.log(err);

@@ -63,7 +63,7 @@ var ProfileForm = React.createClass({
                 </div>
                 <div className="field">
                     <label>Year Joined</label>
-                    <input type="text"
+                    <input type="number"
                            placeholder="When did you join VSA?"
                            value={this.state.year_joined || ""}
                            onChange={this.handleYearChange}/>
@@ -86,7 +86,7 @@ var ProfileForm = React.createClass({
 
                 <div className="ui positive right labeled icon button"
                      onClick={this.handleSubmit}>
-                    Save
+                    Save & Close
                     <i className="checkmark icon"></i>
                 </div>
             </div>
