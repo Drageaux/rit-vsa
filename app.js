@@ -5,7 +5,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     userRouter = require("./server/routers/userRouter");
 
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/vsa-rit");
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/rit-vsa");
 
 // Settings
 app.use(bodyParser.urlencoded({extended: false})); // parse application/x-www-form-urlencoded
