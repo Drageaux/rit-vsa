@@ -112,6 +112,7 @@ section#members {
     padding-bottom: 50px;
     .ui.cards {
         position: relative;
+        padding-bottom: 25px;
         flex-direction: column;
         max-height: calc(100vh - 50px);
         overflow-x: auto;

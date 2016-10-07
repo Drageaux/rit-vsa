@@ -125,7 +125,8 @@ var ProfileModal = React.createClass({
             error: function (xhr, status, err) {
                 console.log("user", status, err.toString());
             }.bind(this)
-        })
+        });
+        this.props.onProfileUpdate();
     },
     render: function () {
         return (
@@ -165,8 +166,3 @@ var ProfileModal = React.createClass({
         );
     }
 });
-ReactDOM.render(
-    <ProfileModal />,
-    document.getElementById("profile-modal-react")
-);
-
